@@ -3,6 +3,8 @@ const arrays = @import("arrays.zig");
 const names_and_numbers = @import("names_numbers.zig");
 const num_ops = @import("num_ops.zig");
 const bool_ops = @import("bool_ops.zig");
+const block_switch = @import("block_switch.zig");
+const enum_union = @import("enums_unions.zig");
 const tempp = @import("temp.zig");
 
 // const Cat: type = struct {
@@ -18,8 +20,10 @@ const tempp = @import("temp.zig");
 pub fn main() !void {
     // try names_and_numbers.sample();
     // try num_ops.sample();
-    // try arrays.sample();
-    try bool_ops.sample();
+    try arrays.sample();
+    // try bool_ops.sample();
+    // try block_switch.sample();
+    // try enum_union.sample();
     // const result = squareRoot(25);
     // std.debug.print("the result is: {d}\n", .{result});
 
@@ -33,28 +37,3 @@ pub fn main() !void {
     // const fav_color: Color = .red;
     // std.debug.print("my favorite color is: {s} and color number is: {d}\n", .{ @tagName(fav_color), @intFromEnum(fav_color) });
 }
-
-// pub fn squareRoot(radicand: usize) usize {
-//     var result: usize = 0;
-//     const n: f64 = @floatFromInt(radicand);
-//     var guess: f64 = n / 2.0;
-//     var prev_guess: f64 = 0;
-//     const tolerance: f64 = 0.000001;
-
-//     while (std.math.approxEqAbs(f64, guess, prev_guess, tolerance) == false) {
-//         prev_guess = guess;
-//         guess = (guess + n / guess) / 2.0;
-//     }
-//     result = @intFromFloat(guess);
-
-//     return result;
-// }
-
-// fn sampleSwitch(x: usize) bool {
-//     const result: bool = switch (x) {
-//         1 => true,
-//         else => false,
-//     };
-
-//     return result;
-// }

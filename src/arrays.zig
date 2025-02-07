@@ -31,11 +31,16 @@ pub fn sample() !void {
     const word_arr: [9]u8 = .{ 71, 97, 114, 102, 105, 101, 108, 100, 0 };
     print("the word in word_arr is: {s} and the array value is {any}\n", .{ word_arr, word_arr });
 
-    const big_arr: [10]u8 = .{ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+    var big_arr: [10]u8 = .{ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
     print("the big array value is: {any}\n", .{big_arr});
 
-    const slice_arr = big_arr[0..arr.len];
+    const slice_arr: [*:0]const u8 = big_arr[0..3 :0];
     print("the slice array value is: {any}\n", .{slice_arr});
+
+    // change index 1 to value 3 which affected the original big array.
+    // slice_arr[1] = 3;
+    // print("the slice array value is: {any}\n", .{slice_arr});
+    // print("the big array value is: {any}\n", .{big_arr});
 
     const first_name: []const u8 = "Jon";
 
